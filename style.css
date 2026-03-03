@@ -10,16 +10,18 @@ body {
 /* FULL-WIDTH FIXED BANNER */
 header {
   width:100%;
-  position: fixed;
+  position:fixed;
   top:0;
   left:0;
+  right:0;
   z-index:1000;
 }
 
 .banner1 {
- width:100vw;        /* full viewport width */
-  height:50px;        /* banner thickness */
-  object-fit:cover;   /* stretches/crops to fill area */
+  width:100%;
+  height:50px;
+  min-width:100%;
+  object-fit:cover;
   display:block;
   border-bottom:3px solid #333;
 }
