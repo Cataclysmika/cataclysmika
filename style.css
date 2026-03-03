@@ -1,76 +1,120 @@
-body{
-background:#1b1b1b;
-color:#d6d6d6;
-font-family:Verdana, Arial, sans-serif;
-margin:0;
+body {
+  background:#1b1b1b;
+  color:#d6d6d6;
+  font-family:Verdana, Arial, sans-serif;
+  margin:0;
 }
 
-.container{
-width:900px;
-margin:auto;
+.container {
+  width: 100%;
 }
 
-.banner{
-width:100%;
-display:block;
-border-bottom:3px solid #333;
+.banner {
+  width: 100%;
+  display:block;
+  border-bottom:3px solid #333;
 }
 
-.layout{
-display:flex;
+.layout {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
 }
 
-.sidebar{
-width:230px;
-background:#111;
-padding:15px;
-border-right:2px solid #333;
+/* LEFT SIDEBAR */
+.sidebar {
+  width: 220px;
+  background:#111;
+  padding:15px;
+  border-right:2px solid #333;
+  flex-shrink: 0;
 }
 
-.profile{
-width:100%;
-margin-bottom:10px;
-border:2px solid #333;
+.profile {
+  width:100%;
+  margin-bottom:10px;
+  border:2px solid #333;
 }
 
-.sidebar ul{
-padding-left:18px;
+.sidebar ul {
+  padding-left:18px;
 }
 
-.sidebar li{
-margin-bottom:6px;
+.sidebar li {
+  margin-bottom:6px;
 }
 
-.content{
-flex:1;
-padding:15px;
+.sidebar a {
+  color:#7ccaff;
+  text-decoration:none;
 }
 
-.box{
-background:#111;
-border:2px solid #333;
-padding:15px;
-margin-bottom:15px;
+.sidebar a:hover {
+  text-decoration:underline;
 }
 
-h2{
-margin-top:0;
-color:#bbbbbb;
-border-bottom:1px solid #333;
-padding-bottom:4px;
+/* MIDDLE CONTENT */
+.content {
+  flex:1;
+  padding:15px;
 }
 
-.album{
-width:120px;
-margin:5px;
-border:2px solid #333;
+.box {
+  background:#111;
+  border:2px solid #333;
+  padding:15px;
+  margin-bottom:15px;
 }
 
-footer{
-text-align:center;
-font-size:12px;
-color:#888;
-padding:10px;
-border-top:2px solid #333;
-margin-top:10px;
+h2 {
+  margin-top:0;
+  color:#bbbbbb;
+  border-bottom:1px solid #333;
+  padding-bottom:4px;
+}
+
+.album {
+  width:120px;
+  margin:5px;
+  border:2px solid #333;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+  width:220px;
+  background:#111;
+  padding:15px;
+  border-left:2px solid #333;
+  flex-shrink:0;
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.music-player {
+  width:100%;
+  margin-bottom:20px;
+}
+
+.gif-area {
+  width:100%;
+}
+
+.gif {
+  width:100%;
+  margin-bottom:10px;
+  border:2px solid #333;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  font-size:12px;
+  color:#888;
+  padding:10px;
+  border-top:2px solid #333;
+  margin-top:10px;
 }
