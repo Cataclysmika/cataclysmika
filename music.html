@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Mika's Music Archive</title>
-<link rel="stylesheet" href="music-style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="banner-container">
-  <img src="banner1.jpg" alt="Banner1" class="banner1">
-</header>
+<!-- FULL-WIDTH BANNER -->
+<header></header>
 
 <div class="layout">
 
   <!-- LEFT SIDEBAR -->
   <div class="sidebar">
     <img src="profile.jpg" class="profile" alt="Profile">
-    
+
     <h3>About Me</h3>
     <p>
       Name: Mika<br>
@@ -36,54 +35,76 @@
 
   <!-- MIDDLE CONTENT -->
   <div class="content">
+    
+    <!-- FILTER DROPDOWNS -->
     <div class="filters">
-      <select id="genre-select">
-        <option value="all">All Genres</option>
+      <label for="genre">Genre:</label>
+      <select id="genre">
+        <option value="all">All</option>
         <option value="metal">Metal</option>
         <option value="emo">Emo</option>
         <option value="punk">Punk</option>
       </select>
 
-      <select id="platform-select">
-        <option value="all">All Platforms</option>
+      <label for="platform">Platform:</label>
+      <select id="platform">
+        <option value="all">All</option>
         <option value="spotify">Spotify</option>
         <option value="youtube">YouTube</option>
         <option value="bandcamp">Bandcamp</option>
       </select>
     </div>
 
+    <!-- MUSIC GRID -->
     <div class="music-grid">
-
-      <!-- Example Music Card -->
+      
+      <!-- MUSIC CARD 1 -->
       <div class="music-card" data-genre="metal" data-platform="spotify">
         <div class="embed-container">
-          <iframe src="https://open.spotify.com/embed/album/ALBUM_ID" frameborder="0" allow="encrypted-media"></iframe>
+          <iframe src="https://open.spotify.com/embed/album/PLACEHOLDER" allow="encrypted-media"></iframe>
         </div>
         <div class="track-info">
-          <p>Album Name — Artist</p>
+          Deftones — Around the Fur
         </div>
         <div class="platform-icon">
-          <a href="https://open.spotify.com/album/ALBUM_ID" target="_blank">
-            <img src="spotify-logo.png" alt="Spotify Logo">
+          <a href="https://open.spotify.com/album/PLACEHOLDER" target="_blank">
+            <img src="spotify.png" alt="Spotify">
           </a>
         </div>
       </div>
 
+      <!-- MUSIC CARD 2 -->
       <div class="music-card" data-genre="emo" data-platform="youtube">
         <div class="embed-container">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/PLACEHOLDER" allowfullscreen></iframe>
         </div>
         <div class="track-info">
-          <p>Song Name — Artist</p>
+          Title Fight — Floral Green
         </div>
         <div class="platform-icon">
-          <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank">
-            <img src="youtube-logo.png" alt="YouTube Logo">
+          <a href="https://www.youtube.com/watch?v=PLACEHOLDER" target="_blank">
+            <img src="youtube.png" alt="YouTube">
           </a>
         </div>
       </div>
 
-      <!-- Add more cards as needed -->
+      <!-- MUSIC CARD 3 -->
+      <div class="music-card" data-genre="emo" data-platform="spotify">
+        <div class="embed-container">
+          <iframe src="https://open.spotify.com/embed/album/PLACEHOLDER" allow="encrypted-media"></iframe>
+        </div>
+        <div class="track-info">
+          Saosin — Translating the Name
+        </div>
+        <div class="platform-icon">
+          <a href="https://open.spotify.com/album/PLACEHOLDER" target="_blank">
+            <img src="spotify.png" alt="Spotify">
+          </a>
+        </div>
+      </div>
+
+      <!-- Add more music cards here as needed -->
+
     </div>
   </div>
 
@@ -94,28 +115,24 @@
 </footer>
 
 <script>
-  // Filter logic
-  const genreSelect = document.getElementById('genre-select');
-  const platformSelect = document.getElementById('platform-select');
+  // Simple JS for filtering
+  const genreSelect = document.getElementById('genre');
+  const platformSelect = document.getElementById('platform');
   const cards = document.querySelectorAll('.music-card');
 
-  function filterCards() {
+  function filterMusic() {
     const genre = genreSelect.value;
     const platform = platformSelect.value;
 
     cards.forEach(card => {
-      const cardGenre = card.getAttribute('data-genre');
-      const cardPlatform = card.getAttribute('data-platform');
-
-      const show = (genre === 'all' || cardGenre === genre) &&
-                   (platform === 'all' || cardPlatform === platform);
-
-      card.style.display = show ? 'block' : 'none';
+      const matchGenre = (genre === 'all' || card.dataset.genre === genre);
+      const matchPlatform = (platform === 'all' || card.dataset.platform === platform);
+      card.style.display = (matchGenre && matchPlatform) ? 'flex' : 'none';
     });
   }
 
-  genreSelect.addEventListener('change', filterCards);
-  platformSelect.addEventListener('change', filterCards);
+  genreSelect.addEventListener('change', filterMusic);
+  platformSelect.addEventListener('change', filterMusic);
 </script>
 
 </body>
