@@ -80,10 +80,11 @@ header {
 }
 
 .box {
-  background:#111;
+  background: rgba(120,120,120,0.25);  /* grey + transparency */
   border:1px solid #333;
   padding:15px;
   margin-bottom:15px;
+  backdrop-filter: blur(3px); /* optional nice glass effect */
 }
 
 h2 {
