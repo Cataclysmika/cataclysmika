@@ -1,3 +1,4 @@
+/* BODY AND FONT */
 body {
   background:#1b1b1b;
   color:#d6d6d6;
@@ -5,29 +6,31 @@ body {
   margin:0;
 }
 
-.container {
-  width: 100%;
+/* FULL-WIDTH BANNER */
+header {
+  width:100%;
 }
 
 .banner {
-  width: 100%;
+  width:100%;
   display:block;
   border-bottom:3px solid #333;
 }
 
+/* FLEX LAYOUT */
 .layout {
-  display: flex;
-  width: 100%;
-  align-items: flex-start;
+  display:flex;
+  width:100%;
+  align-items:flex-start;
 }
 
 /* LEFT SIDEBAR */
 .sidebar {
-  width: 220px;
+  width:220px;
   background:#111;
   padding:15px;
   border-right:2px solid #333;
-  flex-shrink: 0;
+  flex-shrink:0;
 }
 
 .profile {
@@ -57,6 +60,7 @@ body {
 .content {
   flex:1;
   padding:15px;
+  margin-right:0;
 }
 
 .box {
@@ -79,15 +83,16 @@ h2 {
   border:2px solid #333;
 }
 
-/* RIGHT PANEL */
+/* RIGHT SIDEBAR - STICKY */
 .right-panel {
   width:220px;
   background:#111;
   padding:15px;
   border-left:2px solid #333;
   flex-shrink:0;
-  position:sticky;
-  top:0;
+
+  position:sticky;   /* sticky so it stays visible while scrolling */
+  top:0;             /* stuck to top of viewport */
   height:100vh;
   display:flex;
   flex-direction:column;
