@@ -53,6 +53,13 @@ header {
   width: 100%;
   margin-bottom: 10px;
   border: 1px solid #333;
+
+  filter: grayscale(100%);           /* monochrome profile picture */
+  transition: filter 0.3s ease;      /* smooth hover transition */
+}
+
+.profile:hover {
+  filter: grayscale(0%);             /* restore color on hover */
 }
 
 .sidebar ul {
@@ -120,7 +127,7 @@ h2 {
   box-sizing: border-box;
 }
 
-/* MUSIC PLAYER FIT */
+/* MUSIC PLAYER */
 .music-player {
   width: 100%;
   max-width: 100%;
