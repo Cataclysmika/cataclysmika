@@ -35,52 +35,60 @@
 
   <!-- MIDDLE CONTENT -->
   <div class="content">
-
-    <!-- Music Archive Box -->
     <div class="box">
       <h2>Music Archive</h2>
-      
-      <!-- Genre & Platform Buttons -->
-      <div class="filter-buttons">
-        <button class="filter-btn">All</button>
-        <button class="filter-btn">Metal</button>
-        <button class="filter-btn">Emo</button>
-        <button class="filter-btn">Rock</button>
-        <button class="filter-btn">Steam</button>
-        <button class="filter-btn">PS5</button>
-        <button class="filter-btn">Xbox</button>
+
+      <!-- Filters -->
+      <div class="filters">
+        <label for="genre">Genre:</label>
+        <select id="genre">
+          <option value="all">All</option>
+          <option value="metal">Metal</option>
+          <option value="emo">Emo</option>
+          <option value="rock">Rock</option>
+        </select>
+
+        <label for="platform">Platform:</label>
+        <select id="platform">
+          <option value="all">All</option>
+          <option value="spotify">Spotify</option>
+          <option value="youtube">YouTube</option>
+          <option value="bandcamp">Bandcamp</option>
+        </select>
       </div>
 
-      <!-- Album Grid -->
-      <div class="album-grid">
-        <div class="album-box">
-          <img src="album1.jpg" class="album" alt="Album 1">
-          <p>Album 1 — Artist</p>
-        </div>
-        <div class="album-box">
-          <img src="album2.jpg" class="album" alt="Album 2">
-          <p>Album 2 — Artist</p>
-        </div>
-        <div class="album-box">
-          <img src="album3.jpg" class="album" alt="Album 3">
-          <p>Album 3 — Artist</p>
-        </div>
-        <div class="album-box">
-          <img src="album4.jpg" class="album" alt="Album 4">
-          <p>Album 4 — Artist</p>
-        </div>
-      </div>
+      <!-- Music Items Grid -->
+      <div id="music-grid">
 
-      <!-- Track List -->
-      <h3>Top Tracks</h3>
-      <ul>
-        <li>Track 1 — Artist</li>
-        <li>Track 2 — Artist</li>
-        <li>Track 3 — Artist</li>
-        <li>Track 4 — Artist</li>
-      </ul>
+        <!-- Example Music Item -->
+        <div class="music-item" data-genre="metal" data-platform="spotify">
+          <div class="embed-container">
+            <iframe src="https://open.spotify.com/embed/album/placeholder" frameborder="0" allow="encrypted-media"></iframe>
+          </div>
+          <div class="music-info">
+            <p><strong>Album Title</strong> — Artist Name</p>
+          </div>
+          <a href="https://open.spotify.com/album/placeholder" target="_blank" class="music-link">
+            <img src="spotify-logo.png" alt="Spotify Logo">
+          </a>
+        </div>
+
+        <div class="music-item" data-genre="emo" data-platform="youtube">
+          <div class="embed-container">
+            <iframe src="https://www.youtube.com/embed/placeholder" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="music-info">
+            <p><strong>Song Title</strong> — Artist Name</p>
+          </div>
+          <a href="https://www.youtube.com/watch?v=placeholder" target="_blank" class="music-link">
+            <img src="youtube-logo.png" alt="YouTube Logo">
+          </a>
+        </div>
+
+        <!-- Add more music-item divs with proper data-genre and data-platform -->
+
+      </div>
     </div>
-
   </div>
 
   <!-- RIGHT SIDEBAR -->
@@ -103,6 +111,31 @@
 <footer>
   <p>Personal site • Best viewed on a desktop</p>
 </footer>
+
+<script>
+  // Filtering functionality
+  const genreSelect = document.getElementById('genre');
+  const platformSelect = document.getElementById('platform');
+  const musicItems = document.querySelectorAll('.music-item');
+
+  function filterMusic() {
+    const selectedGenre = genreSelect.value;
+    const selectedPlatform = platformSelect.value;
+
+    musicItems.forEach(item => {
+      const itemGenre = item.getAttribute('data-genre');
+      const itemPlatform = item.getAttribute('data-platform');
+
+      const genreMatch = (selectedGenre === 'all' || selectedGenre === itemGenre);
+      const platformMatch = (selectedPlatform === 'all' || selectedPlatform === itemPlatform);
+
+      item.style.display = (genreMatch && platformMatch) ? 'inline-block' : 'none';
+    });
+  }
+
+  genreSelect.addEventListener('change', filterMusic);
+  platformSelect.addEventListener('change', filterMusic);
+</script>
 
 </body>
 </html>
