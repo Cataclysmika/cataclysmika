@@ -174,29 +174,35 @@ footer {
   border: 1px solid #333;
 }
 
-/* Music Items - iPod style */
+/* Music Items Grid */
 #music-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: center; /* center the rows */
+  gap: 15px;
 }
 
+/* Each music item container */
 .music-item {
-  width: 220px;
-  background: #222; /* slightly darker than middle boxes */
-  margin: 5px;
-  border: 1px solid #333;
-  text-align: center;
-  padding: 5px;
-  box-sizing: border-box;
+  width: 240px;
 }
 
-.embed-container {
+/* Grey iPod-style box */
+.music-box {
   background: #333;
-  width: 100%;
-  height: 150px;
+  border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 5px;
+  border: 1px solid #555;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Embed takes 2/3 height of box */
+.embed-container {
+  background: #222;
+  height: 150px; /* 2/3 of the music-box */
+  width: 100%;
+  overflow: hidden;
 }
 
 .embed-container iframe {
@@ -205,14 +211,21 @@ footer {
   border: 0;
 }
 
+/* Info below embed */
+.music-info {
+  padding: 8px;
+  background: #333;
+  text-align: center;
+}
+
 .music-info p {
-  font-size: 12px;
+  margin: 0 0 5px 0;
+  font-size: 13px;
   color: #ddd;
-  margin: 5px 0;
 }
 
 .music-link img {
   width: 24px;
   height: 24px;
-  margin-top: 5px;
+  margin-top: 3px;
 }
