@@ -1,67 +1,76 @@
-/* BODY AND FONT */
+/* BODY AND FONT (middle page background stays the same) */
 body {
   background: url('background.jpg') no-repeat center center fixed;
-  background-size: cover;  /* scales image to cover entire viewport */
+  background-size: cover;
   color: #d6d6d6;
   font-family: Verdana, Arial, sans-serif;
   margin: 0;
 }
 
-/* FULL-WIDTH FIXED BANNER */
+/* HEADER WITH GIF BACKGROUND */
 header {
   width: 100%;
+  height: 50px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+
+  background: url('sparkle.gif');
+  background-size: cover;
+  background-position: center;
+
+  border-bottom: 3px solid #333;
   z-index: 1000;
 }
 
+/* remove the banner image since header is now the banner */
 .banner1 {
-  width: 100%;
-  height: 50px;
-  display: block;
-  object-fit: cover;
-  border-bottom: 3px solid #333;
+  display: none;
 }
 
-/* FLEX LAYOUT */
+/* LAYOUT */
 .layout {
   display: flex;
   width: 100%;
   align-items: flex-start;
-  padding-top: 50px;       /* space for fixed banner */
+  padding-top: 50px;
   box-sizing: border-box;
 }
 
-/* LEFT SIDEBAR - FIXED */
+/* LEFT SIDEBAR */
 .sidebar {
   width: 220px;
-  background: #000;       /* black sidebar */
+
+  background: rgba(0,0,0,0.9); /* mostly black but slightly transparent */
+  backdrop-filter: blur(2px);
+
   padding: 15px;
   border-right: 2px solid #333;
 
   position: fixed;
-  top: 50px;                /* below banner */
+  top: 50px;
   left: 0;
   height: calc(100vh - 50px);
-  overflow-y: auto;        /* vertical scroll if content too tall */
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
+/* PROFILE IMAGE */
 .profile {
   width: 100%;
   margin-bottom: 10px;
   border: 1px solid #333;
 
-  filter: grayscale(100%);           /* monochrome profile picture */
-  transition: filter 0.3s ease;      /* smooth hover transition */
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
 }
 
 .profile:hover {
-  filter: grayscale(0%);             /* restore color on hover */
+  filter: grayscale(0%);
 }
 
+/* SIDEBAR LINKS */
 .sidebar ul {
   padding-left: 18px;
 }
@@ -83,16 +92,16 @@ header {
 .content {
   flex: 1;
   padding: 15px;
-  margin-left: 240px;      /* leave space for fixed left panel */
-  margin-right: 240px;     /* leave space for fixed right panel */
+  margin-left: 240px;
+  margin-right: 240px;
 }
 
 .box {
-  background: rgba(120,120,120,0.25);  /* grey + transparency */
+  background: rgba(120,120,120,0.25);
   border: 1px solid #333;
   padding: 15px;
   margin-bottom: 15px;
-  backdrop-filter: blur(3px); /* optional glass effect */
+  backdrop-filter: blur(3px);
 }
 
 h2 {
@@ -108,22 +117,28 @@ h2 {
   border: 1px solid #333;
 }
 
-/* RIGHT PANEL - FIXED */
+/* RIGHT SIDEBAR */
 .right-panel {
   width: 220px;
-  background: #000;       /* black sidebar */
+
+  background: rgba(0,0,0,0.9); /* same slight transparency */
+  backdrop-filter: blur(2px);
+
   padding: 15px;
   border-left: 2px solid #333;
 
   position: fixed;
-  top: 50px;               /* below banner */
+  top: 50px;
   right: 0;
-  height: calc(100vh - 50px); /* full height minus banner */
-  overflow-y: auto;       /* scroll vertically only */
-  overflow-x: hidden;     /* no horizontal scroll */
+  height: calc(100vh - 50px);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   box-sizing: border-box;
 }
 
@@ -136,7 +151,7 @@ h2 {
 
 .music-player audio {
   width: 100%;
-  height: 30px;          /* shrinks player to fit column */
+  height: 30px;
 }
 
 /* GIF AREA */
