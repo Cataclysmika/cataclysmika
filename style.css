@@ -9,15 +9,15 @@ body {
 /* FULL-WIDTH FIXED BANNER */
 header {
   width:100%;
-  position: fixed;   /* banner sticks to top */
+  position: fixed;
   top:0;
   left:0;
-  z-index: 1000;
+  z-index:1000;
 }
 
 .banner {
   width:100%;
-  height:50px;       /* thin banner */
+  height:50px;           /* thin banner */
   object-fit:cover;
   display:block;
   border-bottom:3px solid #333;
@@ -28,7 +28,7 @@ header {
   display:flex;
   width:100%;
   align-items:flex-start;
-  padding-top:50px;  /* push content below fixed banner */
+  padding-top:50px;       /* push content below fixed banner */
   box-sizing:border-box;
 }
 
@@ -68,7 +68,7 @@ header {
 .content {
   flex:1;
   padding:15px;
-  margin-right:240px; /* leave room for fixed right column */
+  margin-right:240px;       /* leave room for fixed right panel */
 }
 
 .box {
@@ -91,18 +91,18 @@ h2 {
   border:1px solid #333;
 }
 
-/* RIGHT SIDEBAR - FIXED */
+/* RIGHT PANEL - FIXED */
 .right-panel {
   width:220px;
   background:#111;
   padding:15px;
   border-left:2px solid #333;
 
-  position: fixed;        /* fixed so it stays while scrolling */
-  top:50px;               /* below fixed banner */
+  position: fixed;         /* FIXED to stay on screen */
+  top:50px;                /* below banner */
   right:0;
-  height: calc(100vh - 50px); /* fill vertical space under banner */
-  overflow-y: auto;       /* scroll if content is taller than column */
+  height: calc(100vh - 50px); /* fills screen under banner */
+  overflow-y: auto;        /* scroll if content too tall */
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -110,12 +110,12 @@ h2 {
 }
 
 .music-player {
-  width: 100%;   /* fit inside right column */
-  margin-bottom: 20px;
+  width: 100%;             /* fit inside column */
+  margin-bottom:20px;
 }
 
 .gif-area {
-  width: 100%;
+  width:100%;
 }
 
 .gif {
