@@ -28,17 +28,23 @@ header {
   display:flex;
   width:100%;
   align-items:flex-start;
-  padding-top:50px;       /* push content below fixed banner */
+  padding-top:50px;       /* space for fixed banner */
   box-sizing:border-box;
 }
 
-/* LEFT SIDEBAR */
+/* LEFT SIDEBAR - FIXED */
 .sidebar {
   width:220px;
   background:#111;
   padding:15px;
   border-right:2px solid #333;
-  flex-shrink:0;
+
+  position: fixed;
+  top:50px;                /* below banner */
+  left:0;
+  height: calc(100vh - 50px);
+  overflow-y: auto;        /* vertical scroll if content too tall */
+  box-sizing:border-box;
 }
 
 .profile {
@@ -68,7 +74,8 @@ header {
 .content {
   flex:1;
   padding:15px;
-  margin-right:240px;       /* leave room for fixed right panel */
+  margin-left:240px;      /* leave space for fixed left panel */
+  margin-right:240px;     /* leave space for fixed right panel */
 }
 
 .box {
@@ -98,29 +105,31 @@ h2 {
   padding:15px;
   border-left:2px solid #333;
 
-  position: fixed;         /* FIXED to stay on screen */
-  top:50px;                /* below banner */
+  position: fixed;
+  top:50px;               /* below banner */
   right:0;
-  height: calc(100vh - 50px); /* fills screen under banner */
-  overflow-y: auto;        /* scroll if content too tall */
+  height: calc(100vh - 50px); /* full height minus banner */
+  overflow-y: auto;       /* scroll vertically only */
+  overflow-x: hidden;     /* no bottom scrollbar */
   display:flex;
   flex-direction:column;
   align-items:center;
   box-sizing:border-box;
 }
 
-/* RIGHT PANEL MUSIC PLAYER */
+/* MUSIC PLAYER FIT */
 .music-player {
-  width: 100%;          /* full width of right panel */
-  max-width: 100%;      /* never exceed panel width */
-  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  box-sizing:border-box;
 }
 
 .music-player audio {
-  width: 100%;           /* audio element scales to fit panel */
-  height: auto;          /* keep default height proportional */
+  width: 100%;
+  height: 30px;          /* shrinks player to fit column */
 }
 
+/* GIF AREA */
 .gif-area {
   width:100%;
 }
