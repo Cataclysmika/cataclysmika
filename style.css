@@ -109,9 +109,16 @@ h2 {
   box-sizing:border-box;
 }
 
+/* RIGHT PANEL MUSIC PLAYER */
 .music-player {
-  width: 100%;             /* fit inside column */
-  margin-bottom:20px;
+  width: 100%;          /* full width of right panel */
+  max-width: 100%;      /* never exceed panel width */
+  box-sizing: border-box;
+}
+
+.music-player audio {
+  width: 100%;           /* audio element scales to fit panel */
+  height: auto;          /* keep default height proportional */
 }
 
 .gif-area {
