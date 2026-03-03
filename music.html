@@ -8,7 +8,6 @@
 
 <body>
 
-<!-- FULL-WIDTH BANNER -->
 <header></header>
 
 <div class="layout">
@@ -35,7 +34,7 @@
 
   <!-- MIDDLE CONTENT -->
   <div class="content">
-    
+
     <!-- FILTER DROPDOWNS -->
     <div class="filters">
       <label for="genre">Genre:</label>
@@ -56,54 +55,60 @@
     </div>
 
     <!-- MUSIC GRID -->
-    <div class="music-grid">
-      
-      <!-- MUSIC CARD 1 -->
-      <div class="music-card" data-genre="metal" data-platform="spotify">
-        <div class="embed-container">
-          <iframe src="https://open.spotify.com/embed/album/PLACEHOLDER" allow="encrypted-media"></iframe>
-        </div>
-        <div class="track-info">
-          Deftones — Around the Fur
-        </div>
-        <div class="platform-icon">
-          <a href="https://open.spotify.com/album/PLACEHOLDER" target="_blank">
-            <img src="spotify.png" alt="Spotify">
-          </a>
+    <div id="music-grid">
+
+      <!-- MUSIC ITEM 1 -->
+      <div class="music-item" data-genre="metal" data-platform="spotify">
+        <div class="music-box">
+          <div class="embed-container">
+            <iframe src="https://open.spotify.com/embed/album/PLACEHOLDER" allow="encrypted-media"></iframe>
+          </div>
+          <div class="music-info">
+            <p>Deftones — Around the Fur</p>
+            <div class="music-link">
+              <a href="https://open.spotify.com/album/PLACEHOLDER" target="_blank">
+                <img src="spotify.png" alt="Spotify">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- MUSIC CARD 2 -->
-      <div class="music-card" data-genre="emo" data-platform="youtube">
-        <div class="embed-container">
-          <iframe src="https://www.youtube.com/embed/PLACEHOLDER" allowfullscreen></iframe>
-        </div>
-        <div class="track-info">
-          Title Fight — Floral Green
-        </div>
-        <div class="platform-icon">
-          <a href="https://www.youtube.com/watch?v=PLACEHOLDER" target="_blank">
-            <img src="youtube.png" alt="YouTube">
-          </a>
-        </div>
-      </div>
-
-      <!-- MUSIC CARD 3 -->
-      <div class="music-card" data-genre="emo" data-platform="spotify">
-        <div class="embed-container">
-          <iframe src="https://open.spotify.com/embed/album/PLACEHOLDER" allow="encrypted-media"></iframe>
-        </div>
-        <div class="track-info">
-          Saosin — Translating the Name
-        </div>
-        <div class="platform-icon">
-          <a href="https://open.spotify.com/album/PLACEHOLDER" target="_blank">
-            <img src="spotify.png" alt="Spotify">
-          </a>
+      <!-- MUSIC ITEM 2 -->
+      <div class="music-item" data-genre="emo" data-platform="youtube">
+        <div class="music-box">
+          <div class="embed-container">
+            <iframe src="https://www.youtube.com/embed/PLACEHOLDER" allowfullscreen></iframe>
+          </div>
+          <div class="music-info">
+            <p>Title Fight — Floral Green</p>
+            <div class="music-link">
+              <a href="https://www.youtube.com/watch?v=PLACEHOLDER" target="_blank">
+                <img src="youtube.png" alt="YouTube">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Add more music cards here as needed -->
+      <!-- MUSIC ITEM 3 -->
+      <div class="music-item" data-genre="emo" data-platform="spotify">
+        <div class="music-box">
+          <div class="embed-container">
+            <iframe src="https://open.spotify.com/embed/album/PLACEHOLDER" allow="encrypted-media"></iframe>
+          </div>
+          <div class="music-info">
+            <p>Saosin — Translating the Name</p>
+            <div class="music-link">
+              <a href="https://open.spotify.com/album/PLACEHOLDER" target="_blank">
+                <img src="spotify.png" alt="Spotify">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more music items here -->
 
     </div>
   </div>
@@ -115,19 +120,18 @@
 </footer>
 
 <script>
-  // Simple JS for filtering
   const genreSelect = document.getElementById('genre');
   const platformSelect = document.getElementById('platform');
-  const cards = document.querySelectorAll('.music-card');
+  const items = document.querySelectorAll('.music-item');
 
   function filterMusic() {
     const genre = genreSelect.value;
     const platform = platformSelect.value;
 
-    cards.forEach(card => {
-      const matchGenre = (genre === 'all' || card.dataset.genre === genre);
-      const matchPlatform = (platform === 'all' || card.dataset.platform === platform);
-      card.style.display = (matchGenre && matchPlatform) ? 'flex' : 'none';
+    items.forEach(item => {
+      const matchGenre = (genre === 'all' || item.dataset.genre === genre);
+      const matchPlatform = (platform === 'all' || item.dataset.platform === platform);
+      item.style.display = (matchGenre && matchPlatform) ? 'block' : 'none';
     });
   }
 
