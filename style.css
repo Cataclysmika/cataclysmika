@@ -153,7 +153,27 @@ footer {
 
                                                        /* MUSIC PAGE STYLE*/
 
-/* ALBUM GRID */
+/* Filter Buttons */
+.filter-buttons {
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  background: #111;
+  color: #7ccaff;
+  border: 1px solid #333;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.filter-btn:hover {
+  background: #222;
+}
+
+/* Album Grid */
 .album-grid {
   display: flex;
   flex-wrap: wrap;
