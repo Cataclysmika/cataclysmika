@@ -6,14 +6,18 @@ body {
   margin:0;
 }
 
-/* FULL-WIDTH BANNER */
+/* FULL-WIDTH FIXED BANNER */
 header {
   width:100%;
+  position: fixed;   /* banner sticks to top */
+  top:0;
+  left:0;
+  z-index: 1000;
 }
 
 .banner {
   width:100%;
-  max-height:35px;
+  height:50px;       /* thin banner */
   object-fit:cover;
   display:block;
   border-bottom:3px solid #333;
@@ -24,6 +28,8 @@ header {
   display:flex;
   width:100%;
   align-items:flex-start;
+  padding-top:50px;  /* push content below fixed banner */
+  box-sizing:border-box;
 }
 
 /* LEFT SIDEBAR */
@@ -38,7 +44,7 @@ header {
 .profile {
   width:100%;
   margin-bottom:10px;
-  border:2px solid #333;
+  border:1px solid #333;
 }
 
 .sidebar ul {
@@ -62,12 +68,12 @@ header {
 .content {
   flex:1;
   padding:15px;
-  margin-right:0;
+  margin-right:240px; /* leave room for fixed right column */
 }
 
 .box {
   background:#111;
-  border:2px solid #333;
+  border:1px solid #333;
   padding:15px;
   margin-bottom:15px;
 }
@@ -82,39 +88,40 @@ h2 {
 .album {
   width:120px;
   margin:5px;
-  border:2px solid #333;
+  border:1px solid #333;
 }
 
-/* RIGHT SIDEBAR - STICKY */
+/* RIGHT SIDEBAR - FIXED */
 .right-panel {
   width:220px;
   background:#111;
   padding:15px;
   border-left:2px solid #333;
-  flex-shrink:0;
 
-  position:sticky;   /* sticky so it stays visible while scrolling */
-  top:0;             /* stuck to top of viewport */
-  height:100vh;
+  position: fixed;        /* fixed so it stays while scrolling */
+  top:50px;               /* below fixed banner */
+  right:0;
+  height: calc(100vh - 50px); /* fill vertical space under banner */
+  overflow-y: auto;       /* scroll if content is taller than column */
   display:flex;
   flex-direction:column;
   align-items:center;
+  box-sizing:border-box;
 }
 
 .music-player {
-  width:100%;
-  max-width:15px;
-  margin-bottom:20px;
+  width: 100%;   /* fit inside right column */
+  margin-bottom: 20px;
 }
 
 .gif-area {
-  width:100%;
+  width: 100%;
 }
 
 .gif {
   width:100%;
   margin-bottom:10px;
-  border:2px solid #333;
+  border:1px solid #333;
 }
 
 /* FOOTER */
@@ -125,4 +132,5 @@ footer {
   padding:10px;
   border-top:2px solid #333;
   margin-top:10px;
+  clear:both;
 }
