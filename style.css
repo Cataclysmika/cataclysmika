@@ -150,3 +150,24 @@ footer {
   margin-top: 10px;
   clear: both;
 }
+
+                                                       /* MUSIC PAGE STYLE*/
+
+/* ALBUM GRID */
+.album-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.album-box {
+  width: 120px;
+  text-align: center;
+}
+
+.album-box p {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #bbbbbb;
+}
